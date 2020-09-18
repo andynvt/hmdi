@@ -18,8 +18,6 @@ export './configurator/configurator_view.dart';
 
 export './presentation/presentation_view.dart';
 
-
-
 export './configurator_preview/configurator_preview_view.dart';
 
 export './presentation_detail/presentation_detail_view.dart';
@@ -39,3 +37,20 @@ export './search_customer/search_customer_view.dart';
 export './customer_create/customer_create_view.dart';
 
 export './customer_edit/customer_edit_view.dart';
+
+export './booking_payment/booking_payment_view.dart';
+
+export './booking_bank_transfer/booking_bank_transfer_view.dart';
+
+export './booking_go_pay/booking_go_pay_view.dart';
+
+export './booking_complete_dialog/booking_complete_dialog.dart';
+
+export './customer/customer_view.dart';
+
+export './quotation_compare/quotation_compare_view.dart';
+
+export './booking_summary/booking_summary_view.dart';
+
+
+export './send_email_dialog/send_email_dialog_view.dart';

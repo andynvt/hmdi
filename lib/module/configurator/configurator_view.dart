@@ -27,12 +27,6 @@ class _ConfiguratorViewState extends State<_ConfiguratorView> {
     createAccessoryDetail(context);
   }
 
-  void _quotationClick() {
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => createQuotation()),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final model = Provider.of<ConfiguratorModel>(context);
@@ -49,13 +43,17 @@ class _ConfiguratorViewState extends State<_ConfiguratorView> {
             ),
             FlatButton(
               onPressed: () => _accessoryDetailClick(context),
-              color: Colors.blue,
+              color: Colors.amber,
               child: Text('Accessory detail'),
             ),
             FlatButton(
-              onPressed: _quotationClick,
-              color: Colors.blue,
-              child: Text('Quotation test'),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => createBookingPayment()),
+                );
+              },
+              color: Colors.amber,
+              child: Text('Booking test'),
             ),
           ],
         ),

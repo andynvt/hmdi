@@ -24,7 +24,7 @@ class _ConfiguratorViewState extends State<_ConfiguratorView> {
       color: Colors.blue[100],
       child: Center(
         child: FlatButton(
-          onPressed: () => createFeatureDetail(context),
+          onPressed: () => createAccessoryDetail(context),
           color: Colors.blue,
           child: Text('Feature detail'),
         ),

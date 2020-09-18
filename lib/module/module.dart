@@ -25,3 +25,9 @@ export './configurator_preview/configurator_preview_view.dart';
 export './presentation_detail/presentation_detail_view.dart';
 
 export './search/search_view.dart';
+
+export './quotation/quotation_view.dart';
+
+export './quotation_detail/quotation_detail_view.dart';
+
+export './pricing/pricing_view.dart';

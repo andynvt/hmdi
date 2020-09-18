@@ -18,4 +18,8 @@ export './configurator/configurator_view.dart';
 
 export './presentation/presentation_view.dart';
 
-export './preview/preview_view.dart';
+
+
+export './configurator_preview/configurator_preview_view.dart';
+
+export './presentation_detail/presentation_detail_view.dart';

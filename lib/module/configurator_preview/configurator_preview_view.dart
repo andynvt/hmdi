@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'preview_model.dart';
+import 'configurator_preview_model.dart';
 
-ChangeNotifierProvider<PreviewModel> createPreview() {
+ChangeNotifierProvider<ConfiguratorPreviewModel> createConfiguratorPreview() {
   return ChangeNotifierProvider(
-    create: (_) => PreviewModel(),
-    child: _PreviewView(),
+    create: (_) => ConfiguratorPreviewModel(),
+    child: _ConfiguratorPreviewView(),
   );
 }
 
-class _PreviewView extends StatefulWidget {
+class _ConfiguratorPreviewView extends StatefulWidget {
   @override
-  _PreviewViewState createState() => _PreviewViewState();
+  _ConfiguratorPreviewViewState createState() => _ConfiguratorPreviewViewState();
 }
 
-class _PreviewViewState extends State<_PreviewView> {
+class _ConfiguratorPreviewViewState extends State<_ConfiguratorPreviewView> {
   @override
   Widget build(BuildContext context) {
-    final model = Provider.of<PreviewModel>(context);
+    final model = Provider.of<ConfiguratorPreviewModel>(context);
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,

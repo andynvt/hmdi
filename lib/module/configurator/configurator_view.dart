@@ -19,7 +19,7 @@ class _ConfiguratorView extends StatefulWidget {
 class _ConfiguratorViewState extends State<_ConfiguratorView> {
   void _fullScreenClick() {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => createPreview()),
+      MaterialPageRoute(builder: (_) => createConfiguratorPreview()),
     );
   }
 

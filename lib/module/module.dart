@@ -18,8 +18,6 @@ export './configurator/configurator_view.dart';
 
 export './presentation/presentation_view.dart';
 
-
-
 export './configurator_preview/configurator_preview_view.dart';
 
 export './presentation_detail/presentation_detail_view.dart';
@@ -46,4 +44,4 @@ export './booking_bank_transfer/booking_bank_transfer_view.dart';
 
 export './booking_go_pay/booking_go_pay_view.dart';
 
-export './booking_payment_complete/booking_payment_complete_view.dart';
+export './booking_complete/booking_complete_view.dart';

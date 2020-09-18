@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hmdi/module/module.dart';
 import 'package:provider/provider.dart';
 
+import '../home/home_view.dart';
 import 'login_model.dart';
 
 ChangeNotifierProvider<LoginModel> createLogin() {

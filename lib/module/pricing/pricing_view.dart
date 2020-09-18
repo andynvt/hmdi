@@ -16,11 +16,28 @@ class _PricingView extends StatefulWidget {
 }
 
 class _PricingViewState extends State<_PricingView> {
+  void _applyClick() {}
   @override
   Widget build(BuildContext context) {
     final model = Provider.of<PricingModel>(context);
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text('Pricing'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.close),
+            onPressed: Navigator.of(context).pop,
+          )
+        ],
+      ),
+      body: Center(
+        child: FlatButton(
+          child: Text('Apply'),
+          color: Colors.blue,
+          onPressed: _applyClick,
+        ),
+      ),
     );
   }
 }

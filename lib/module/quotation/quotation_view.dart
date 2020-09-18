@@ -17,7 +17,7 @@ class _QuotationView extends StatefulWidget {
 }
 
 class _QuotationViewState extends State<_QuotationView> {
-  void _quotationDetailClick() {
+  void _completeClick() {
     Navigator.of(context).push(
       MaterialPageRoute(builder: (_) => createQuotationDetail()),
     );
@@ -28,13 +28,25 @@ class _QuotationViewState extends State<_QuotationView> {
     final model = Provider.of<QuotationModel>(context);
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('Quotation'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.close),
+            onPressed: Navigator.of(context).pop,
+          )
+        ],
       ),
       body: Center(
-        child: FlatButton(
-          child: Text('Detail'),
-          color: Colors.blue,
-          onPressed: _quotationDetailClick,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            FlatButton(
+              child: Text('Quotation Complete'),
+              color: Colors.blue,
+              onPressed: _completeClick,
+            ),
+          ],
         ),
       ),
     );

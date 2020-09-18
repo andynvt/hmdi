@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hmdi/module/module.dart';
 import 'package:provider/provider.dart';
 
 import 'my_page_model.dart';
@@ -17,7 +18,12 @@ class _MyPageView extends StatefulWidget {
 
 class _MyPageViewState extends State<_MyPageView> {
   void _logoutClick() {}
-  void _changeLanguageClick() {}
+  void _changeLanguageClick() {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (_) => createLanguage()),
+    );
+  }
+
   void _privacyClick() {}
   @override
   Widget build(BuildContext context) {

@@ -7,11 +7,21 @@ void createAccessoryDetail(BuildContext context) {
 class _AccessoryDetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.amber[200],
-      child: Center(
-        child: Text('Accessory detail'),
-      ),
+    return Column(
+      children: [
+        IconButton(
+          icon: Icon(Icons.close),
+          onPressed: Navigator.of(context).pop,
+        ),
+        Expanded(
+          child: Container(
+            color: Colors.amber[200],
+            child: Center(
+              child: Text('Accessory detail'),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

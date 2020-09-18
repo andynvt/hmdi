@@ -24,7 +24,12 @@ class _MyPageViewState extends State<_MyPageView> {
     );
   }
 
-  void _privacyClick() {}
+  void _privacyClick() {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (_) => createPrivacy()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final model = Provider.of<MyPageModel>(context);

@@ -31,3 +31,5 @@ export './quotation/quotation_view.dart';
 export './quotation_detail/quotation_detail_view.dart';
 
 export './pricing/pricing_view.dart';
+
+export './quotation_summary/quotation_summary_view.dart';

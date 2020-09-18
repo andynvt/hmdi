@@ -17,11 +17,7 @@ class _QuotationView extends StatefulWidget {
 }
 
 class _QuotationViewState extends State<_QuotationView> {
-  void _completeClick() {
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => createQuotationDetail()),
-    );
-  }
+  void _completeClick() {}
 
   @override
   Widget build(BuildContext context) {

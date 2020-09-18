@@ -1,5 +1,11 @@
 export './app/hmdi_app.dart';
 
-export './home/home_view.dart';
 
 export './splash/splash_view.dart';
+
+
+export './login/login_view.dart';
+
+export './my_page/my_page_view.dart';
+
+export './home/home_view.dart';

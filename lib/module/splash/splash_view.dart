@@ -22,7 +22,9 @@ class _SplashViewState extends State<_SplashView> {
   }
 
   void _goHome() {
-    Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, __, ___) => createHome()));
+    Navigator.of(context).push(
+      PageRouteBuilder(pageBuilder: (_, __, ___) => createLogin()),
+    );
   }
 
   @override

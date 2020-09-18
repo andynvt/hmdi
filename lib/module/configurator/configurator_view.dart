@@ -17,16 +17,36 @@ class _ConfiguratorView extends StatefulWidget {
 }
 
 class _ConfiguratorViewState extends State<_ConfiguratorView> {
+  void _fullScreenClick() {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (_) => createPreview()),
+    );
+  }
+
+  void _accessoryDetailClick(BuildContext context) {
+    createAccessoryDetail(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     final model = Provider.of<ConfiguratorModel>(context);
     return Container(
       color: Colors.blue[100],
       child: Center(
-        child: FlatButton(
-          onPressed: () => createAccessoryDetail(context),
-          color: Colors.blue,
-          child: Text('Accessory detail'),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            FlatButton(
+              onPressed: _fullScreenClick,
+              color: Colors.blue,
+              child: Icon(Icons.fullscreen),
+            ),
+            FlatButton(
+              onPressed: () => _accessoryDetailClick(context),
+              color: Colors.blue,
+              child: Text('Accessory detail'),
+            ),
+          ],
         ),
       ),
     );

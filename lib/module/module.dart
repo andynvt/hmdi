@@ -15,3 +15,7 @@ export './privacy/privacy_view.dart';
 export './accessory_detail/accessory_detail_view.dart';
 
 export './configurator/configurator_view.dart';
+
+export './presentation/presentation_view.dart';
+
+export './preview/preview_view.dart';

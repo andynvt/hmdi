@@ -72,7 +72,8 @@ class _HomeViewState extends State<_HomeView> {
           case 0:
             return createConfigurator();
           case 1:
-            return Container(color: Colors.amber[100]);
+            // return Container(color: Colors.red[100]);
+            return createPresentation();
           case 2:
             return Container(color: Colors.red[100]);
           case 3:

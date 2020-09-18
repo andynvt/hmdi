@@ -5,7 +5,7 @@ class HMDIApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: createHome(),
+      home: createSplash(),
     );
   }
 }

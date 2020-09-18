@@ -29,6 +29,12 @@ class _BookingPaymentViewState extends State<_BookingPaymentView> {
     );
   }
 
+  void _dealerClick() {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (_) => createBookingSummary()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final model = Provider.of<BookingPaymentModel>(context);
@@ -54,8 +60,13 @@ class _BookingPaymentViewState extends State<_BookingPaymentView> {
             ),
             FlatButton(
               child: Text('Go Pay'),
-              color: Colors.amber,
+              color: Colors.blue,
               onPressed: _gopayClick,
+            ),
+            FlatButton(
+              child: Text('Visit dealer to pay'),
+              color: Colors.amber,
+              onPressed: _dealerClick,
             ),
           ],
         ),

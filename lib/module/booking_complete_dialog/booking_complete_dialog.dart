@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-void createBookingPaymentComplete(BuildContext context) {
+void createBookingCompleteDialog(BuildContext context) {
   showDialog(
     context: context,
-    builder: (_) => _BookingPaymentCompleteView(),
+    builder: (_) => _BookingCompleteView(),
   );
 }
 
-class _BookingPaymentCompleteView extends StatefulWidget {
+class _BookingCompleteView extends StatefulWidget {
   @override
-  _BookingPaymentCompleteViewState createState() => _BookingPaymentCompleteViewState();
+  _BookingCompleteViewState createState() => _BookingCompleteViewState();
 }
 
-class _BookingPaymentCompleteViewState extends State<_BookingPaymentCompleteView> {
+class _BookingCompleteViewState extends State<_BookingCompleteView> {
   @override
   Widget build(BuildContext context) {
     return Container(

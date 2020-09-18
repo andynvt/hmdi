@@ -49,15 +49,6 @@ class _ConfiguratorViewState extends State<_ConfiguratorView> {
             FlatButton(
               onPressed: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (_) => createQuotation()),
-                );
-              },
-              color: Colors.blue,
-              child: Text('Quotation test'),
-            ),
-            FlatButton(
-              onPressed: () {
-                Navigator.of(context).push(
                   MaterialPageRoute(builder: (_) => createBookingPayment()),
                 );
               },

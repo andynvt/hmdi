@@ -44,4 +44,13 @@ export './booking_bank_transfer/booking_bank_transfer_view.dart';
 
 export './booking_go_pay/booking_go_pay_view.dart';
 
-export './booking_complete/booking_complete_view.dart';
+export './booking_complete_dialog/booking_complete_dialog.dart';
+
+export './customer/customer_view.dart';
+
+export './quotation_compare/quotation_compare_view.dart';
+
+export './booking_summary/booking_summary_view.dart';
+
+
+export './send_email_dialog/send_email_dialog_view.dart';

@@ -18,7 +18,7 @@ class _BookingGoPayView extends StatefulWidget {
 
 class _BookingGoPayViewState extends State<_BookingGoPayView> {
   void _paidClick(BuildContext context) {
-    createBookingPaymentComplete(context);
+    createBookingCompleteDialog(context);
   }
 
   @override

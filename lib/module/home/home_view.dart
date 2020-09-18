@@ -18,7 +18,12 @@ class _HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<_HomeView> {
   int index = 0;
-  void _searchClick() {}
+  void _searchClick() {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (_) => createSearch()),
+    );
+  }
+
   void _profileClick() {}
 
   @override
@@ -72,7 +77,6 @@ class _HomeViewState extends State<_HomeView> {
           case 0:
             return createConfigurator();
           case 1:
-            // return Container(color: Colors.red[100]);
             return createPresentation();
           case 2:
             return Container(color: Colors.red[100]);

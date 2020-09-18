@@ -28,6 +28,7 @@ class _LoginViewState extends State<_LoginView> {
     final model = Provider.of<LoginModel>(context);
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('Login'),
       ),
       body: Center(

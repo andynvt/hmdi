@@ -39,3 +39,11 @@ export './search_customer/search_customer_view.dart';
 export './customer_create/customer_create_view.dart';
 
 export './customer_edit/customer_edit_view.dart';
+
+export './booking_payment/booking_payment_view.dart';
+
+export './booking_bank_transfer/booking_bank_transfer_view.dart';
+
+export './booking_go_pay/booking_go_pay_view.dart';
+
+export './booking_payment_complete/booking_payment_complete_view.dart';

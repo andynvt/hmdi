@@ -54,3 +54,15 @@ export './booking_summary/booking_summary_view.dart';
 
 
 export './send_email_dialog/send_email_dialog_view.dart';
+
+export './vehicle/vehicle_view.dart';
+
+export './vehicle_model_compare/vehicle_model_compare_view.dart';
+
+export './vehicle_model_filter/vehicle_model_filter_view.dart';
+
+export './vehicle_trim_compare/vehicle_trim_compare_view.dart';
+
+export './vehicle_trim_filter/vehicle_trim_filter_view.dart';
+
+export './stock_detail/stock_detail_view.dart';

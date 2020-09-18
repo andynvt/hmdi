@@ -43,7 +43,7 @@ class _ConfiguratorViewState extends State<_ConfiguratorView> {
             ),
             FlatButton(
               onPressed: () => _accessoryDetailClick(context),
-              color: Colors.amber,
+              color: Colors.blue,
               child: Text('Accessory detail'),
             ),
             FlatButton(
@@ -54,6 +54,15 @@ class _ConfiguratorViewState extends State<_ConfiguratorView> {
               },
               color: Colors.amber,
               child: Text('Booking test'),
+            ),
+            FlatButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => createVehicle()),
+                );
+              },
+              color: Colors.amber,
+              child: Text('Vehicle test'),
             ),
           ],
         ),

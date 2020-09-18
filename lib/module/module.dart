@@ -13,3 +13,7 @@ export './home/home_view.dart';
 export './language/language_view.dart';
 
 export './privacy/privacy_view.dart';
+
+export './feature_detail/feature_detail_view.dart';
+
+export './configurator/configurator_view.dart';

@@ -70,7 +70,7 @@ class _HomeViewState extends State<_HomeView> {
       body: () {
         switch (index) {
           case 0:
-            return Container(color: Colors.blue[100]);
+            return createConfigurator();
           case 1:
             return Container(color: Colors.amber[100]);
           case 2:

@@ -18,31 +18,24 @@ class _HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<_HomeView> {
   int index = 0;
-  void _searchClick() {
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => createSearch()),
-    );
-  }
-
-  void _profileClick() {}
 
   @override
   Widget build(BuildContext context) {
     final model = Provider.of<HomeModel>(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: _searchClick,
-          ),
-          IconButton(
-            icon: Icon(Icons.accessibility),
-            onPressed: _profileClick,
-          ),
-        ],
-      ),
+      // appBar: AppBar(
+      //   title: Text('Home'),
+      //   actions: [
+      //     IconButton(
+      //       icon: Icon(Icons.search),
+      //       onPressed: _searchClick,
+      //     ),
+      //     IconButton(
+      //       icon: Icon(Icons.accessibility),
+      //       onPressed: _profileClick,
+      //     ),
+      //   ],
+      // ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: index,
         unselectedItemColor: Colors.grey,
@@ -81,7 +74,7 @@ class _HomeViewState extends State<_HomeView> {
           case 2:
             return Container(color: Colors.red[100]);
           case 3:
-            return createMyPage();
+            return createHomeMyPage();
           default:
             break;
         }

@@ -4,7 +4,6 @@ export './splash/splash_view.dart';
 
 export './login/login_view.dart';
 
-export './my_page/my_page_view.dart';
 
 export './home/home_view.dart';
 
@@ -66,3 +65,5 @@ export './vehicle_trim_compare/vehicle_trim_compare_view.dart';
 export './vehicle_trim_filter/vehicle_trim_filter_view.dart';
 
 export './stock_detail/stock_detail_view.dart';
+
+export './home_my_page/home_my_page_view.dart';

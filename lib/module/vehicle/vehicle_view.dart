@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hmdi/model/model.dart';
 import 'package:hmdi/module/module.dart';
 import 'package:provider/provider.dart';
 
@@ -17,6 +18,93 @@ class _VehicleView extends StatefulWidget {
 }
 
 class _VehicleViewState extends State<_VehicleView> {
+  int _tabIndex = 0;
+
+  List<VehicleInfo> _vehicles = [
+    VehicleInfo(
+      name: 'KONA',
+      subName: 'dari',
+      price: 'Rp. 351,839,475',
+      imageUrl: 'https://www.hyundai.com/eu/dam/hpp/hway/model/M00118.png',
+      variants: [
+        VehicleInfo(
+          name: 'Gasoline 2.0 AT GRG',
+          subName: 'dari',
+          price: 'Rp. 351,839,475',
+          imageUrl: 'https://www.hyundai.com/eu/dam/hpp/hway/model/M00118.png',
+        ),
+        VehicleInfo(
+          name: 'Gasoline 3.xxxx AT GRG',
+          subName: 'dari',
+          price: 'Rp. 351,839,475',
+          imageUrl: 'https://www.hyundai.com/eu/dam/hpp/hway/model/M00118.png',
+        ),
+      ],
+    ),
+    VehicleInfo(
+      name: 'KONA Electric',
+      subName: 'dari2',
+      price: 'Rp. 351,839,4752',
+      imageUrl: 'https://www.hyundai.com/eu/dam/hpp/hway/model/M00118.png',
+      variants: [
+        VehicleInfo(
+          name: 'Gasoline 22.0 AT GRG',
+          subName: 'dari',
+          price: 'Rp. 351,839,475',
+          imageUrl: 'https://www.hyundai.com/eu/dam/hpp/hway/model/M00118.png',
+        ),
+        VehicleInfo(
+          name: 'Gasoline 23.xxxx AT GRG',
+          subName: 'dari',
+          price: 'Rp. 351,839,475',
+          imageUrl: 'https://www.hyundai.com/eu/dam/hpp/hway/model/M00118.png',
+        ),
+      ],
+    ),
+    VehicleInfo(
+      name: 'IONIQ Electric',
+      subName: 'dari2',
+      price: 'Rp. 351,839,4752',
+      imageUrl: 'https://www.hyundai.com/eu/dam/hpp/hway/model/M00118.png',
+      variants: [],
+    ),
+    VehicleInfo(
+      name: 'IONIQ Electric 2',
+      subName: 'dari2',
+      price: 'Rp. 351,839,4752',
+      imageUrl: 'https://www.hyundai.com/eu/dam/hpp/hway/model/M00118.png',
+      variants: [],
+    ),
+    VehicleInfo(
+      name: 'IONIQ Electric 2',
+      subName: 'dari2',
+      price: 'Rp. 351,839,4752',
+      imageUrl: 'https://www.hyundai.com/eu/dam/hpp/hway/model/M00118.png',
+      variants: [],
+    ),
+    VehicleInfo(
+      name: 'IONIQ Electric 3',
+      subName: 'dari2',
+      price: 'Rp. 351,839,4752',
+      imageUrl: 'https://www.hyundai.com/eu/dam/hpp/hway/model/M00118.png',
+      variants: [],
+    ),
+    VehicleInfo(
+      name: 'IONIQ Electric 4',
+      subName: 'dari2',
+      price: 'Rp. 351,839,4752',
+      imageUrl: 'https://www.hyundai.com/eu/dam/hpp/hway/model/M00118.png',
+      variants: [],
+    ),
+    VehicleInfo(
+      name: 'IONIQ Electric 5',
+      subName: 'dari2',
+      price: 'Rp. 351,839,4752',
+      imageUrl: 'https://www.hyundai.com/eu/dam/hpp/hway/model/M00118.png',
+      variants: [],
+    ),
+  ];
+
   void _compareClick() {
     Navigator.of(context).push(
       MaterialPageRoute(builder: (_) => createVehicleModelCompare()),
@@ -27,6 +115,11 @@ class _VehicleViewState extends State<_VehicleView> {
     Navigator.of(context).push(
       MaterialPageRoute(builder: (_) => createStockDetail()),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
   }
 
   @override
@@ -43,22 +136,109 @@ class _VehicleViewState extends State<_VehicleView> {
           )
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            FlatButton(
-              child: Text('Compare'),
-              color: Colors.blue,
-              onPressed: _compareClick,
-            ),
-            FlatButton(
-              child: Text('Stock detail'),
-              color: Colors.blue,
-              onPressed: _stockDetailClick,
-            ),
-          ],
-        ),
+      body: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      _tabIndex = 0;
+                    });
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 50,
+                        child: Stack(
+                          children: [
+                            Align(
+                              alignment: Alignment.center,
+                              child: Padding(
+                                padding: const EdgeInsets.only(right: 45),
+                                child: Text('Model'),
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.center,
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 45),
+                                child: InkWell(
+                                  onTap: () {},
+                                  borderRadius: BorderRadius.circular(23),
+                                  child: Container(
+                                    width: 40,
+                                    height: 40,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.black,
+                                    ),
+                                    child: Icon(
+                                      Icons.filter_list,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        height: 3,
+                        color: _tabIndex == 0 ? Colors.blue : Colors.transparent,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Expanded(
+                child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      _tabIndex = 1;
+                    });
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 50,
+                        child: Center(
+                          child: Text('Stock'),
+                        ),
+                        // color: Colors.grey,
+                      ),
+                      Container(
+                        height: 3,
+                        color: _tabIndex == 1 ? Colors.blue : Colors.transparent,
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+          Container(
+            color: Colors.grey[300],
+            height: 1,
+          ),
+          Expanded(
+            child: () {
+              if (_tabIndex == 0) {
+                return ListView.builder(
+                  itemCount: _vehicles.length,
+                  itemBuilder: (_, index) {
+                    return createVehicleItemWidget(_vehicles[index]);
+                  },
+                );
+              }
+              return Container(
+                color: Colors.amber,
+              );
+            }(),
+          ),
+        ],
       ),
     );
   }

@@ -18,7 +18,9 @@ class _VehicleView extends StatefulWidget {
 }
 
 class _VehicleViewState extends State<_VehicleView> {
-  int _tabIndex = 0;
+  int tabIndex = 0;
+  bool isSelectedMode = false;
+  final Map<String, VehicleInfo> selectedMap = {};
 
   List<VehicleInfo> _vehicles = [
     VehicleInfo(
@@ -124,12 +126,6 @@ class _VehicleViewState extends State<_VehicleView> {
     ),
   ];
 
-  void _compareClick() {
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => createVehicleModelCompare()),
-    );
-  }
-
   void _stockDetailClick() {
     Navigator.of(context).push(
       MaterialPageRoute(builder: (_) => createStockDetail()),
@@ -144,121 +140,285 @@ class _VehicleViewState extends State<_VehicleView> {
   @override
   Widget build(BuildContext context) {
     final model = Provider.of<VehicleModel>(context);
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text('Vehicle'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.close),
-            onPressed: Navigator.of(context).pop,
-          )
-        ],
-      ),
-      body: Column(
-        children: [
-          Row(
+    return Stack(
+      children: [
+        Scaffold(
+          backgroundColor: Colors.white,
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            title: Text('Vehicle'),
+            actions: [
+              IconButton(
+                icon: Icon(Icons.close),
+                onPressed: Navigator.of(context).pop,
+              )
+            ],
+          ),
+          body: Column(
             children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          tabIndex = 0;
+                        });
+                      },
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 50,
+                            child: Stack(
+                              children: [
+                                Align(
+                                  alignment: Alignment.center,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 45),
+                                    child: Text('Model'),
+                                  ),
+                                ),
+                                Align(
+                                  alignment: Alignment.center,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 45),
+                                    child: InkWell(
+                                      onTap: () {
+                                        setState(() {
+                                          isSelectedMode = !isSelectedMode;
+                                        });
+                                      },
+                                      borderRadius: BorderRadius.circular(23),
+                                      child: Container(
+                                        width: 40,
+                                        height: 40,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.black,
+                                        ),
+                                        child: Icon(
+                                          Icons.filter_list,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            height: 3,
+                            color: tabIndex == 0 ? Colors.blue : Colors.transparent,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          tabIndex = 1;
+                        });
+                      },
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 50,
+                            child: Center(
+                              child: Text('Stock'),
+                            ),
+                            // color: Colors.grey,
+                          ),
+                          Container(
+                            height: 3,
+                            color: tabIndex == 1 ? Colors.blue : Colors.transparent,
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              Container(
+                color: Colors.grey[300],
+                height: 1,
+              ),
               Expanded(
-                child: InkWell(
-                  onTap: () {
-                    setState(() {
-                      _tabIndex = 0;
-                    });
-                  },
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 50,
-                        child: Stack(
+                child: () {
+                  if (tabIndex == 0) {
+                    return ListView.builder(
+                      itemCount: _vehicles.length,
+                      itemBuilder: (_, index) {
+                        if (!isSelectedMode) {
+                          return createVehicleItemWidget(_vehicles[index]);
+                        } else {
+                          return buildSelectItem(_vehicles[index]);
+                        }
+                      },
+                    );
+                  }
+                  return Container(
+                    color: Colors.amber,
+                  );
+                }(),
+              ),
+            ],
+          ),
+        ),
+        () {
+          if (!isSelectedMode) {
+            return SizedBox();
+          }
+          double h = MediaQuery.of(context).padding.top + kToolbarHeight + 50;
+          int length = selectedMap.length;
+          return Material(
+            child: Container(
+              color: Colors.blueGrey[900],
+              height: h,
+              alignment: Alignment.bottomCenter,
+              padding: const EdgeInsets.only(bottom: 16),
+              child: Row(
+                children: [
+                  SizedBox(width: 16),
+                  SizedBox(
+                    width: 35,
+                    height: 35,
+                    child: FlatButton(
+                      padding: EdgeInsets.zero,
+                      onPressed: () {
+                        setState(() {
+                          isSelectedMode = false;
+                        });
+                      },
+                      child: Icon(
+                        Icons.close,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 32),
+                  SizedBox(
+                    width: 200,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '$length Selected',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        SizedBox(height: 8),
+                        Row(
                           children: [
-                            Align(
-                              alignment: Alignment.center,
-                              child: Padding(
-                                padding: const EdgeInsets.only(right: 45),
-                                child: Text('Model'),
+                            SizedBox(
+                              height: 40,
+                              child: FlatButton(
+                                onPressed: () {
+                                  //TODO; Delete selectedMap
+                                  print('Delete: $selectedMap');
+                                },
+                                color: length == 0 ? Colors.white38 : Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.zero,
+                                ),
+                                child: Text(
+                                  'Delete',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey[900],
+                                  ),
+                                ),
                               ),
                             ),
-                            Align(
-                              alignment: Alignment.center,
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 45),
-                                child: InkWell(
-                                  onTap: () {},
-                                  borderRadius: BorderRadius.circular(23),
-                                  child: Container(
-                                    width: 40,
-                                    height: 40,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.black,
-                                    ),
-                                    child: Icon(
-                                      Icons.filter_list,
-                                      color: Colors.white,
-                                    ),
+                            SizedBox(width: 16),
+                            SizedBox(
+                              height: 40,
+                              child: FlatButton(
+                                onPressed: () {
+                                  //TODO; Compare selectedMap
+                                  print('Compare: $selectedMap');
+                                },
+                                color: length < 2 ? Colors.white38 : Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.zero,
+                                ),
+                                child: Text(
+                                  'Compare',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey[900],
                                   ),
                                 ),
                               ),
                             ),
                           ],
                         ),
-                      ),
-                      Container(
-                        height: 3,
-                        color: _tabIndex == 0 ? Colors.blue : Colors.transparent,
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
+                  Spacer(),
+                ],
+              ),
+            ),
+          );
+        }()
+      ],
+    );
+  }
+
+  Widget buildSelectItem(VehicleInfo info) {
+    return Column(
+      children: [
+        SizedBox(
+          height: 100,
+          child: Row(
+            children: [
+              SizedBox(width: 16),
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    if (selectedMap[info.id] == null) {
+                      selectedMap[info.id] = info;
+                    } else {
+                      selectedMap.removeWhere((key, value) => key == info.id);
+                    }
+                  });
+                },
+                borderRadius: BorderRadius.circular(100),
+                child: Icon(
+                  Icons.check_circle,
+                  size: 30,
+                  color: selectedMap[info.id] != null ? Colors.blue : Colors.grey[400],
                 ),
               ),
-              Expanded(
-                child: InkWell(
-                  onTap: () {
-                    setState(() {
-                      _tabIndex = 1;
-                    });
-                  },
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 50,
-                        child: Center(
-                          child: Text('Stock'),
-                        ),
-                        // color: Colors.grey,
-                      ),
-                      Container(
-                        height: 3,
-                        color: _tabIndex == 1 ? Colors.blue : Colors.transparent,
-                      ),
-                    ],
+              SizedBox(width: 32),
+              Image.network(
+                info.imageUrl,
+                height: 55,
+              ),
+              SizedBox(width: 24),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(info.name),
+                  Text(info.subName),
+                  SizedBox(height: 8),
+                  Text(
+                    info.price,
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                ),
+                ],
               )
             ],
           ),
-          Container(
-            color: Colors.grey[300],
-            height: 1,
-          ),
-          Expanded(
-            child: () {
-              if (_tabIndex == 0) {
-                return ListView.builder(
-                  itemCount: _vehicles.length,
-                  itemBuilder: (_, index) {
-                    return createVehicleItemWidget(_vehicles[index]);
-                  },
-                );
-              }
-              return Container(
-                color: Colors.amber,
-              );
-            }(),
-          ),
-        ],
-      ),
+        ),
+        Container(
+          margin: const EdgeInsets.only(left: 55),
+          height: 1,
+          color: Colors.grey[300],
+        )
+      ],
     );
   }
 }

@@ -21,6 +21,9 @@ class _VehicleItemWidgetState extends State<_VehicleItemWidget> with SingleTicke
 
   void _compareVehiclesClick() {
     //TODO: _compareVehicles compareMap
+    // Navigator.of(context).push(
+    //   MaterialPageRoute(builder: (_) => createVehicleModelCompare()),
+    // );
     print(compareMap);
   }
 
@@ -75,9 +78,9 @@ class _VehicleItemWidgetState extends State<_VehicleItemWidget> with SingleTicke
               children: [
                 Expanded(
                   flex: 1,
-                  child: Padding(
-                    padding: const EdgeInsets.only(bottom: 16),
-                    child: Image.network(widget.info.imageUrl),
+                  child: Image.network(
+                    widget.info.imageUrl,
+                    height: 55,
                   ),
                 ),
                 SizedBox(width: 24),
@@ -126,11 +129,11 @@ class _VehicleItemWidgetState extends State<_VehicleItemWidget> with SingleTicke
                               ),
                             ),
                             FlatButton(
-                              onPressed: compareMap.isEmpty ? null : _compareVehiclesClick,
+                              onPressed: compareMap.length < 2 ? null : _compareVehiclesClick,
                               child: Text(
                                 'Compare',
                                 style: TextStyle(
-                                  color: compareMap.isEmpty ? Colors.grey : Colors.blue,
+                                  color: compareMap.length < 2 ? Colors.grey : Colors.blue,
                                   decoration: TextDecoration.underline,
                                 ),
                               ),

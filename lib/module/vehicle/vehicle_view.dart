@@ -22,19 +22,29 @@ class _VehicleViewState extends State<_VehicleView> {
 
   List<VehicleInfo> _vehicles = [
     VehicleInfo(
+      id: '1',
       name: 'KONA',
       subName: 'dari',
       price: 'Rp. 351,839,475',
       imageUrl: 'https://www.hyundai.com/eu/dam/hpp/hway/model/M00118.png',
       variants: [
         VehicleInfo(
+          id: '1-1',
           name: 'Gasoline 2.0 AT GRG',
           subName: 'dari',
           price: 'Rp. 351,839,475',
           imageUrl: 'https://www.hyundai.com/eu/dam/hpp/hway/model/M00118.png',
         ),
         VehicleInfo(
+          id: '1-2',
           name: 'Gasoline 3.xxxx AT GRG',
+          subName: 'dari',
+          price: 'Rp. 351,839,475',
+          imageUrl: 'https://www.hyundai.com/eu/dam/hpp/hway/model/M00118.png',
+        ),
+        VehicleInfo(
+          id: '1-3',
+          name: 'Gasoline 4.xxxx AT GRG',
           subName: 'dari',
           price: 'Rp. 351,839,475',
           imageUrl: 'https://www.hyundai.com/eu/dam/hpp/hway/model/M00118.png',
@@ -42,18 +52,21 @@ class _VehicleViewState extends State<_VehicleView> {
       ],
     ),
     VehicleInfo(
+      id: '2',
       name: 'KONA Electric',
       subName: 'dari2',
       price: 'Rp. 351,839,4752',
       imageUrl: 'https://www.hyundai.com/eu/dam/hpp/hway/model/M00118.png',
       variants: [
         VehicleInfo(
+          id: '2-1',
           name: 'Gasoline 22.0 AT GRG',
           subName: 'dari',
           price: 'Rp. 351,839,475',
           imageUrl: 'https://www.hyundai.com/eu/dam/hpp/hway/model/M00118.png',
         ),
         VehicleInfo(
+          id: '2-2',
           name: 'Gasoline 23.xxxx AT GRG',
           subName: 'dari',
           price: 'Rp. 351,839,475',
@@ -62,6 +75,7 @@ class _VehicleViewState extends State<_VehicleView> {
       ],
     ),
     VehicleInfo(
+      id: '3',
       name: 'IONIQ Electric',
       subName: 'dari2',
       price: 'Rp. 351,839,4752',
@@ -69,6 +83,7 @@ class _VehicleViewState extends State<_VehicleView> {
       variants: [],
     ),
     VehicleInfo(
+      id: '4',
       name: 'IONIQ Electric 2',
       subName: 'dari2',
       price: 'Rp. 351,839,4752',
@@ -76,6 +91,7 @@ class _VehicleViewState extends State<_VehicleView> {
       variants: [],
     ),
     VehicleInfo(
+      id: '5',
       name: 'IONIQ Electric 2',
       subName: 'dari2',
       price: 'Rp. 351,839,4752',
@@ -83,6 +99,7 @@ class _VehicleViewState extends State<_VehicleView> {
       variants: [],
     ),
     VehicleInfo(
+      id: '6',
       name: 'IONIQ Electric 3',
       subName: 'dari2',
       price: 'Rp. 351,839,4752',
@@ -90,6 +107,7 @@ class _VehicleViewState extends State<_VehicleView> {
       variants: [],
     ),
     VehicleInfo(
+      id: '7',
       name: 'IONIQ Electric 4',
       subName: 'dari2',
       price: 'Rp. 351,839,4752',
@@ -97,6 +115,7 @@ class _VehicleViewState extends State<_VehicleView> {
       variants: [],
     ),
     VehicleInfo(
+      id: '8',
       name: 'IONIQ Electric 5',
       subName: 'dari2',
       price: 'Rp. 351,839,4752',

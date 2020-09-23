@@ -67,3 +67,5 @@ export './vehicle_trim_filter/vehicle_trim_filter_view.dart';
 export './stock_detail/stock_detail_view.dart';
 
 export './home_my_page/home_my_page_view.dart';
+
+export './vehicle_item/vehicle_item_view.dart';

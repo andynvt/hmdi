@@ -22,7 +22,7 @@ class HMDIApp extends StatelessWidget {
             const Locale('ko', 'KR'),
           ],
           locale: lang.currentLocale,
-          home: createSplash(),
+          home: createVehicle(),
         );
       },
     );
